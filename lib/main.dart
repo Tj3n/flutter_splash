@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:flutter_splash/common/constants.dart';
+import 'package:flutter_splash/splash/index.dart';
 import "package:intl/intl.dart";
 import 'network.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -13,23 +15,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-    return new MaterialApp(
-        title: 'sth',
-        theme: ThemeData(primaryColor: Colors.white),
-        home: MyHomePage(title: 'Flutter Demo Home Page'));
+    return MaterialApp(
+      home: SplashPage(),
+    );
+
+    //   return new MaterialApp(
+    //       title: 'sth',
+    //       theme: ThemeData(primaryColor: Colors.white),
+    //       home: MyHomePage(title: 'Flutter Demo Home Page'));
   }
 }
-
-TextStyle defaultTextStyle =
-    TextStyle(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 16);
-
-List<Color> appColors = [
-  Color(0xFF102426),
-  Color(0xFF470024),
-  Color(0xFF5B1865),
-  Color(0xFF2C5784),
-  Color(0xFF5688C7)
-];
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -57,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage>
     _itemsWidget = _items.map((i) {
       return Builder(
         builder: (BuildContext context) {
+          var borderRadius2 = BorderRadius.circular(20);
           return Container(
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 8.0),
@@ -64,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage>
               //     color: Colors.amber,
               //     borderRadius: BorderRadius.circular(20)),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: borderRadius2,
                 child:
                     // Text(i.author),
                     // Image.asset('assets/akali.jpg');
